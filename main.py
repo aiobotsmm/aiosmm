@@ -32,9 +32,15 @@ SERVICES_PER_PAGE = 8
 
 # Create bot and dispatcher
 import os
-
+from aiogram.enums import ParseMode
+from aiogram.client.default import DefaultBotProperties
+from aiogram import Bot
 API_TOKEN = "7542766614:AAEbytY4chkqjm_rMRLkXMHg8toFJEs2_ys"
-bot = Bot(token=API_TOKEN, parse_mode=ParseMode.MARKDOWN)
+bot = Bot(
+    token=API_TOKEN,
+    default=DefaultBotProperties(parse_mode=ParseMode.MARKDOWN)
+)
+
 dp = Dispatcher(storage=MemoryStorage())
 
 # --- DB ---
